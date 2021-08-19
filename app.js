@@ -15,7 +15,8 @@ function getLanguages(renderLanguages) {
     .then(renderLanguages); // renderLanguages(courses)
 }
 
-function createLanguage(formData, callback) { // Line 66
+function createLanguage(formData, callback) {
+  // Line 66
   const options = {
     method: 'POST',
     headers: {
@@ -35,16 +36,19 @@ function resetBtn() {
   document.querySelector('input[name="description"]').value = '';
 }
 
-function renderLanguages(languages) { // Line 17 and more
+function renderLanguages(languages) {
+  // Line 17 and more
   const listLanguages = document.querySelector('#list-languages');
-  const htmls = languages.map((language) => `<li class="language-id-${language.id}">
+  const htmls = languages.map(
+    (language) => `<li class="language-id-${language.id}">
       <h3>${language.name}</h3>
       <p>${language.description}</p>
       <div>
       <button onclick="getLanguageByID(${language.id})">Update</button>
       <button onclick="deleteLanguage(${language.id})">Delete</button>
       </div>
-    </li>`);
+    </li>`
+  );
   listLanguages.innerHTML = htmls.join('');
 }
 
@@ -52,7 +56,9 @@ function handleCreateForm() {
   const createBtn = document.querySelector('#create');
   createBtn.onclick = function () {
     const name = document.querySelector('input[name="name"]').value;
-    const description = document.querySelector('input[name="description"]').value;
+    const description = document.querySelector(
+      'input[name="description"]'
+    ).value;
     const formData = {
       name,
       description,
@@ -80,7 +86,8 @@ function deleteLanguage(id) {
     });
 }
 
-function getLanguageByID(id) { // GET with id need options
+function getLanguageByID(id) {
+  // GET with id need options
   const options = {
     method: 'GET',
     headers: {
@@ -103,7 +110,9 @@ function handleUpdateLanguage(id) {
   const updateBtn = document.querySelector('#create');
   updateBtn.onclick = function () {
     const name = document.querySelector('input[name="name"]').value;
-    const description = document.querySelector('input[name="description"]').value;
+    const description = document.querySelector(
+      'input[name="description"]'
+    ).value;
     const formData = {
       name,
       description,
